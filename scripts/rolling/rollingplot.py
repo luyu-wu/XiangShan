@@ -2,7 +2,6 @@ import sys
 import argparse
 import sqlite3
 import matplotlib.pyplot as plt
-import numpy as np
 
 
 # usage: python3 rollingplot.py DB_FILE_PATH PERF_NAME [--aggregate AGGREGATE_RATIO]

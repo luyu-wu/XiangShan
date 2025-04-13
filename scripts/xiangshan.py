@@ -18,7 +18,6 @@
 # Simple version of xiangshan python wrapper
 
 import argparse
-import json
 import os
 import random
 import signal
@@ -212,7 +211,7 @@ class XiangShan(object):
     def make_clean(self):
         print("Clean up CI workspace")
         self.show()
-        return_code = self.__exec_cmd(f'make -C $NOOP_HOME clean')
+        return_code = self.__exec_cmd('make -C $NOOP_HOME clean')
         return return_code
 
     def generate_verilog(self):
@@ -314,7 +313,7 @@ class XiangShan(object):
             return return_code
         except (KeyboardInterrupt, subprocess.TimeoutExpired):
             os.killpg(os.getpgid(proc.pid), signal.SIGINT)
-            print(f"KeyboardInterrupt or TimeoutExpired.")
+            print("KeyboardInterrupt or TimeoutExpired.")
             return 0
 
     def __get_ci_cputest(self, name=None):
@@ -580,10 +579,10 @@ class XiangShan(object):
             if ret:
                 if self.args.default_wave_home != self.args.wave_home:
                     print("copy wave file to " + self.args.wave_home)
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/*.vcd $WAVE_HOME")
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/emu $WAVE_HOME")
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/rtl/SimTop.v $WAVE_HOME")
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/*.db $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/*.vcd $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/emu $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/rtl/SimTop.v $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/*.db $WAVE_HOME")
                 return ret
         return 0
 
@@ -609,10 +608,10 @@ class XiangShan(object):
             if ret:
                 if self.args.default_wave_home != self.args.wave_home:
                     print("copy wave file to " + self.args.wave_home)
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/*.fsdb $WAVE_HOME")
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/simv $WAVE_HOME")
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/rtl/SimTop.v $WAVE_HOME")
-                    self.__exec_cmd(f"cp $NOOP_HOME/build/*.db $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/*.fsdb $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/simv $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/rtl/SimTop.v $WAVE_HOME")
+                    self.__exec_cmd("cp $NOOP_HOME/build/*.db $WAVE_HOME")
                 return ret
         return 0
 

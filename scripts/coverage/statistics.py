@@ -20,7 +20,6 @@
 
 import sys
 import re
-import copy
 import pprint
 
 LINE_COVERRED = "LINE_COVERRED"

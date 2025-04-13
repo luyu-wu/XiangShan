@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import sys
 import os
 import argparse
 
@@ -18,7 +17,7 @@ def parse_db(table_name, script):
     return (f'sqlite3 {db} "select * from (' +
     f'select * from {table_name} ' +
     (f'where {sql} ' if(sql != '') else '') +
-    (f'order by STAMP desc ' if(last) else '') +
+    ('order by STAMP desc ' if(last) else '') +
     f'limit {limit}' +
     f') order by STAMP asc" | sh {script}')
 

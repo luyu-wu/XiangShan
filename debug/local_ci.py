@@ -4,7 +4,6 @@ import argparse
 import yaml
 import os
 from datetime import date
-import time
 
 github_yaml = ""
 workspace = ""

@@ -19,7 +19,6 @@
 
 import sys
 import re
-import copy
 
 if __name__ == "__main__":
     assert len(sys.argv) == 3, "Expect input_file and output_file"

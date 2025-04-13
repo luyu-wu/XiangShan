@@ -176,7 +176,7 @@ class VModule(object):
                 replaced_lines.append(line) # This is ");"
                 replaced_lines.append(f"`ifdef {macro}\n")
                 replaced_lines.append(s)
-                replaced_lines.append(f"`else\n")
+                replaced_lines.append("`else\n")
             elif in_body:
                 if line.strip() == "endmodule":
                     replaced_lines.append(f"`endif // {macro}\n")
@@ -683,7 +683,7 @@ def replace_mbist_scan_controller(out_dir):
             copy(os.path.join(blackbox_src_dir, filename), target_path)
     with open(os.path.join(out_dir, "dfx_blackbox.f"), "w") as wrapper_f:
         wrapper_f.write("// FIXME: include your blackbox mbist/scan controllers here\n")
-    return target_dir, [f"-F dfx_blackbox.f"]
+    return target_dir, ["-F dfx_blackbox.f"]
 
 
 if __name__ == "__main__":
